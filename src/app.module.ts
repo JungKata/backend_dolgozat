@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Account } from './Owner/account/entities/account.entity';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Owner } from './Owner/owner/entities/owner.entity';
 
 @Module({
   imports: [
@@ -11,9 +13,9 @@ import { AppService } from './app.service';
       port: parseInt(process.env.DB_PORT) || 3306,
       username: process.env.DB_USERNAME || 'root',
       password: process.env.DB_PASSWORD || '',
-      database: process.env.DB_DATABASE || 'database',
+      database: process.env.DB_DATABASE || 'bankdolgozat',
       entities: [
-        /* List of entities here */
+        Owner, Account
       ],
       synchronize: true,
     }),
