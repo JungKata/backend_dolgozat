@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Owner } from "src/Owner/owner/entities/owner.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
 
@@ -13,4 +14,7 @@ export class Account{
 
     @Column()
     balancce: number;
+
+    @OneToOne(() => Owner, (owner) => owner.account)
+    owner: Owner
 }
