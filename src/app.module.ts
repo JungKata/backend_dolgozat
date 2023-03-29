@@ -4,6 +4,10 @@ import { Account } from './Owner/account/entities/account.entity';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Owner } from './Owner/owner/entities/owner.entity';
+import { AccountController } from './Owner/account/account.controller';
+import { OwnerController } from './Owner/owner/owner.controller';
+import { AccountService } from './Owner/account/account.service';
+import { OwnerService } from './Owner/owner/owner.service';
 
 @Module({
   imports: [
@@ -20,7 +24,7 @@ import { Owner } from './Owner/owner/entities/owner.entity';
       synchronize: true,
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, AccountController, OwnerController],
+  providers: [AppService, AccountService, OwnerService],
 })
 export class AppModule {}
